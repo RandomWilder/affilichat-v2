@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* RTL Support for Hebrew */
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+/* For the scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Special handling for Hebrew inputs */
+input[dir="rtl"],
+textarea[dir="rtl"] {
+  text-align: right;
+}

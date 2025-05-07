@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="main-content" id="main-content">
+    <div class="container">
+        <!-- Crawler Tab -->
+        <div id="crawl-tab" class="tab-content">
+            <h2>Website Crawler</h2>
+            <p>Enter your website URL below to crawl and index its content for the chat system.</p>
+            <form id="crawl-form">
+                <div>
+                    <label for="url">Website URL:</label>
+                    <input type="url" id="url" name="url" required placeholder="https://example.com">
+                </div>
+                <div>
+                    <label for="depth">Crawl Depth:</label>
+                    <input type="number" id="depth" name="depth" min="1" max="5" value="2">
+                </div>
+                <div>
+                    <label for="max_pages">Max Pages:</label>
+                    <input type="number" id="max_pages" name="max_pages" min="1" max="1000" value="20">
+                </div>
+                <button type="submit">Start Crawling</button>
+            </form>
+            <div id="crawl-status" class="crawl-status">
+                <p>Crawling in progress... This may take several minutes.</p>
+            </div>
+            <div id="crawl-result" class="crawl-result"></div>
+        </div>
+    </div>
+</section>
+{% endblock %}

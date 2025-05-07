@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1>AI-Powered Affiliate Marketing Assistant</h1>
+        <p>Enhance your website with intelligent crawling and conversation capabilities. Connect with your audience through personalized AI chat.</p>
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('chat_interface') }}" class="btn">Start Chatting</a>
+        {% else %}
+            <a href="{{ url_for('auth.login') }}" class="btn">Login to Start</a>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features" id="features">
+    <div class="container">
+        <h2 class="section-title">Key Features</h2>
+        <div class="feature-cards">
+            <div class="feature-card">
+                <h3>Intelligent Crawling</h3>
+                <p>Automatically crawl and index your website content for relevant information retrieval.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Personalized Chat</h3>
+                <p>Talk to an AI assistant that understands your website content and can answer visitor questions.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Multilingual Support</h3>
+                <p>Full support for RTL languages including Hebrew for global audience reach.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

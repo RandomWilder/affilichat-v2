@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="main-content" id="main-content">
+    <div class="container">
+        <!-- Chat Interface Tab -->
+        <div id="chat-tab" class="tab-content">
+            <h2>Chat Interface</h2>
+            <p>Select a website namespace and interact with the AI assistant that understands your content.</p>
+            <div>
+                <label for="namespace">Select Namespace:</label>
+                <select id="namespace" name="namespace">
+                    {% for namespace in namespaces %}
+                    <option value="{{ namespace }}">{{ namespace }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="service_style">Service Style:</label>
+                <select id="service_style" name="service_style">
+                    <option value="informational">Informational - Focus on providing factual, educational responses</option>
+                    <option value="sales">Sales - Emphasize services, benefits, and calls to action</option>
+                    <option value="emotional_support">Emotional Support - More empathetic, supportive, and reassuring</option>
+                    <option value="creative">Creative - More imaginative, engaging, and illustrative</option>
+                </select>
+            </div>
+            <div class="chat-area" id="chat-messages">
+                <!-- Messages will be displayed here -->
+                <div class="chat-message system-message">
+                    <div class="message-wrapper">
+                        <span class="message-text">
+                            Welcome to AffiliChat! Select a namespace and start chatting.
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <form id="chat-form">
+                <input type="hidden" id="conversation_id" name="conversation_id" value="">
+                <input type="hidden" id="history" name="history" value="[]">
+                <div class="chat-input-container">
+                    <textarea id="message" name="message" placeholder="Type your message here..." dir="auto" class="chat-input" autocomplete="off" spellcheck="false"></textarea>
+                    <button type="submit" id="send-btn" class="send-button">Send</button>
+                </div>
+                <!-- Language indicator -->
+                <div id="lang-indicator" class="lang-indicator">
+                    <span id="lang-status">English</span>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

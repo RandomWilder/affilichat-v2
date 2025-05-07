@@ -1,0 +1,40 @@
+# Version control
+.git
+.gitignore
+
+# Environment and local configuration
+.env
+*.env
+.venv
+venv/
+env/
+
+# Cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Development artifacts
+*.log
+.DS_Store
+node_modules/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Development databases
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE-specific files
+.idea/
+.vscode/
+*.swp
+*.swo

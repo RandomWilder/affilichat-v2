@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="auth-container">
+  <h2>Login</h2>
+  
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  
+  <form method="POST" action="{{ url_for('auth.login') }}">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    
+    <button type="submit">Login</button>
+  </form>
+  
+  <div class="divider">
+    <span>OR</span>
+  </div>
+  
+  <button class="google-signin-btn" id="googleLoginBtn">
+    <img src="{{ url_for('static', filename='images/google-icon.svg') }}" alt="Google">
+    Sign in with Google
+  </button>
+  
+  <div class="auth-links">
+    <p>Don't have an account? <a href="{{ url_for('auth.signup') }}">Sign up</a></p>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // To handle errors in the Google auth process
+  const urlParams = new URLSearchParams(window.location.search);
+  const error = urlParams.get('error');
+  
+  if (error) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'alert alert-danger';
+    errorDiv.textContent = decodeURIComponent(error);
+    document.querySelector('.auth-container').prepend(errorDiv);
+  }
+});
+</script>
+{% endblock %}
