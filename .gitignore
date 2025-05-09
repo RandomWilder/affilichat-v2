@@ -95,3 +95,9 @@ Thumbs.db
 # Kubernetes
 kubeconfig
 *.kubeconfig
+
+# Add to .gitignore
+firebase-key.json
+firebase-key.json.bak
+firebase-key.json.template
+**/firebase-key*.json
